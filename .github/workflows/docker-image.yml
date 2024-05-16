@@ -19,5 +19,6 @@ jobs:
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
           docker tag swiggy:latest amansingh12/swiggy:latest
           docker push amansingh12/swiggy:latest
-          docker run -dit --name swggiy -p 80:3000 amansingh12/swiggy:latest
-          docker logs swiggy
+          docker run -dit -p 80:3000 amansingh12/swiggy:latest
+          sudo chown $USER:$USER /var/run/docker.sock
+          docker ps
